@@ -2,8 +2,8 @@ package at.fhv.weather.handlers;
 
 // Start of user code (user defined imports)
 import at.fhv.weather.models.User;
+import org.apache.commons.codec.digest.DigestUtils;
 
-import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
 // End of user code
@@ -45,10 +45,11 @@ public class AuthHandler {
             throw new Exception("Email must not be empty");
         }
 
-        MessageDigest md = MessageDigest.getInstance("MD5");
-        String token = new String(md.digest(email.getBytes()));
+        String token = DigestUtils.md2Hex(email);
 
-        if (users.containsKey(token)) {
+        System.out.println(token);
+
+        if (!users.containsKey(token)) {
             at.fhv.weather.models.User user = new at.fhv.weather.models.User();
             user.setName(email);
             user.setHistory(new at.fhv.weather.models.History());

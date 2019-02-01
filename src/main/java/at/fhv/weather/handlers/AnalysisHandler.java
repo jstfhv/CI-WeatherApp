@@ -9,6 +9,9 @@ import org.apache.http.client.fluent.Request;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+
+import java.net.HttpURLConnection;
+import java.net.URL;
 // End of user code
 
 
@@ -47,7 +50,8 @@ public class AnalysisHandler {
 		}
 
 		HttpResponse response = Request.Get("http://api.openweathermap.org/data/2.5/weather?q="+text+"&appid=de7553ae3344b58c5c0bbdd222b3043b")
-			.bodyForm(Form.form().add("data", text).build()).execute().returnResponse();
+				.execute().returnResponse();
+
 
 
 		String result = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
@@ -58,8 +62,8 @@ public class AnalysisHandler {
 		float humidity = gson.fromJson(jsonObject.getAsJsonObject("main").get("humidity"), Float.class);
 		float wind = gson.fromJson(jsonObject.getAsJsonObject("wind").get("speed"), Float.class);
 
-
-		String weatherInfo = "Aktuelle Temperatur: " + temp + ",  Luftfeuchtigkeit: " + humidity +"%,  Windgeschwindigkeit: " +wind + "m/s";
+		temp -= 273.15;
+		String weatherInfo = "Aktuelle Temperatur: " + temp + "°C,  Luftfeuchtigkeit: " + humidity +"%,  Windgeschwindigkeit: " +wind + "m/s";
 
 
 		at.fhv.weather.models.WeatherResult weatherResult = new at.fhv.weather.models.WeatherResult();
