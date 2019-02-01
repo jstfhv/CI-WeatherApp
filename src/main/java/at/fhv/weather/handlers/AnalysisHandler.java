@@ -3,15 +3,11 @@ package at.fhv.weather.handlers;
 // Start of user code (user defined imports)
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.fluent.Form;
 import org.apache.http.client.fluent.Request;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-
-import java.net.HttpURLConnection;
-import java.net.URL;
 // End of user code
 
 
@@ -31,7 +27,6 @@ public class AnalysisHandler {
 	    if(INSTANCE == null){
 	        INSTANCE = new AnalysisHandler();
 	    }
-	
 	    return INSTANCE;
 	}
 	
@@ -53,7 +48,6 @@ public class AnalysisHandler {
 				.execute().returnResponse();
 
 
-
 		String result = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
 		Gson gson = new GsonBuilder().create();
 		JsonObject jsonObject = gson.fromJson(result, JsonObject.class);
@@ -72,7 +66,6 @@ public class AnalysisHandler {
 
 		HistoryHandler.getInstance().addHistory(token, text, weatherResult);
 		return weatherResult;
-
 		// End of user code
 	}
 	
