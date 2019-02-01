@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Sentiment Analysis</title>
+    <title>Weather App</title>
     <!-- Bootstrap core CSS-->
     <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template-->
@@ -21,7 +21,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="analysis.html">FHV</a>
+    <a class="navbar-brand" href="weather.html">FHV</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
             data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -29,10 +29,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Sentiment Analysis">
-                <a class="nav-link" href="analysis.html">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Get Weather">
+                <a class="nav-link" href="weather.html">
                     <i class="fa fa-fw fa-dashboard"></i>
-                    <span class="nav-link-text">Sentiment Analysis</span>
+                    <span class="nav-link-text">Get Weather</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="History">
@@ -61,22 +61,22 @@
     <div class="container-fluid">
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-dashboard"></i> Sentiment Analysis
+                <i class="fa fa-dashboard"></i> Get Weather
             </div>
             <div class="card-deck">
                 <div class="card" style="border: none;">
                     <div class="form-group" style="margin-left: 10px; margin-top: 20px;">
                         <form id="analyzeForm" onsubmit="return(false);">
-                            <textarea class="form-control" rows="15" name="text" id="analyzeText"
-                                      placeholder="Enter text for analysis"></textarea>
-                            <button type="submit" class="btn btn-primary btn-block" id="analyzeBtn" style="margin-top: 10px;">Analyze</button>
+                            <input type="text" class="form-control" name="text" id="analyzeText"
+                                      placeholder="Enter City"> </input>
+                            <button type="submit" class="btn btn-primary btn-block" id="analyzeBtn" style="margin-top: 10px;">Get Weather</button>
                         </form>
                     </div>
                 </div>
                 <div class="card" style="border: none;">
                     <div class="card-block" style="text-align: center;">
-                        <i class="fa fa-smile-o" aria-hidden="true" style="font-size: 15em; margin-top: 20px;" id="sentiment"></i>
-                        <p style="font-size: 5em; font-weight: bold;" id="confidence">100%  </p>
+                        <i aria-hidden="true" style="font-size: 30px; margin-top: 20px;" id="location"></i>
+                        <p style="font-size: 20px; font-weight: bold;" id="weather"></p>
                     </div>
                 </div>
             </div>
@@ -85,6 +85,7 @@
             <div class="container">
                 <div class="text-center">
                     <small>Copyright © Michael Sieber</small>
+                    <small> - edited for study purpose</small>
                 </div>
             </div>
         </footer>

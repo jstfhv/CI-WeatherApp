@@ -47,8 +47,6 @@ public class AuthHandler {
 
         String token = DigestUtils.md2Hex(email);
 
-        System.out.println(token);
-
         if (!users.containsKey(token)) {
             at.fhv.weather.models.User user = new at.fhv.weather.models.User();
             user.setName(email);

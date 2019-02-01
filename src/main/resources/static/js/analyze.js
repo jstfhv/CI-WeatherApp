@@ -15,22 +15,17 @@ $(function() {
         $('#analyzeBtn').html('Loading...');
 
         $.ajax({
-            url: "/analyze",
+            url: "/getWeather",
             type: "POST",
             data: {
                 text: $('#analyzeText').val(),
                 token: read('token')
             },
-            success: function (response) {
-                $('#confidence').text(response.confidence + "%");
 
-                if (response.sentiment == 'Positive'){
-                    $('#sentiment').attr('class', 'fa fa-smile-o');
-                } else if (response.sentiment == 'Neutral'){
-                    $('#sentiment').attr('class', 'fa fa-meh-o');
-                } else {
-                    $('#sentiment').attr('class', 'fa fa-frown-o');
-                }
+
+            success: function (response) {
+                $('#weather').text(response.weather);
+                $('#location').text(response.location);
             },
             error: function (response) {
                 alert('error loading data');

@@ -8,6 +8,8 @@ import org.apache.http.client.fluent.Request;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+
+import java.text.DecimalFormat;
 // End of user code
 
 
@@ -51,13 +53,16 @@ public class AnalysisHandler {
 		String result = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
 		Gson gson = new GsonBuilder().create();
 		JsonObject jsonObject = gson.fromJson(result, JsonObject.class);
-
-		float temp = gson.fromJson(jsonObject.getAsJsonObject("main").get("temp"), Float.class);
-		float humidity = gson.fromJson(jsonObject.getAsJsonObject("main").get("humidity"), Float.class);
-		float wind = gson.fromJson(jsonObject.getAsJsonObject("wind").get("speed"), Float.class);
-
-		temp -= 273.15;
-		String weatherInfo = "Aktuelle Temperatur: " + temp + "°C,  Luftfeuchtigkeit: " + humidity +"%,  Windgeschwindigkeit: " +wind + "m/s";
+		String weatherInfo;
+		try {
+			float temp = gson.fromJson(jsonObject.getAsJsonObject("main").get("temp"), Float.class);
+			float humidity = gson.fromJson(jsonObject.getAsJsonObject("main").get("humidity"), Float.class);
+			float wind = gson.fromJson(jsonObject.getAsJsonObject("wind").get("speed"), Float.class);
+			temp -= 273.15;
+			weatherInfo = "temperature: " + new DecimalFormat("#.#").format(temp) + "°C,  humidity: " + humidity +"%,  wind-speed: " +wind + "m/s";
+		} catch (NullPointerException ex){
+			weatherInfo = "City not found";
+		}
 
 
 		at.fhv.weather.models.WeatherResult weatherResult = new at.fhv.weather.models.WeatherResult();

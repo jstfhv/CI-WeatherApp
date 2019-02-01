@@ -10,7 +10,7 @@ $(function() {
             },
             success: function (response) {
                 write('token', response);
-                window.location.replace("analysis.html");
+                window.location.replace("weather.html");
             },
             error: function (response) {
                 alert('error during login, please try again');
