@@ -11,10 +11,10 @@ public class AnalysisEndpoint {
 	// End of user code
 	
 	
-	@org.springframework.web.bind.annotation.PostMapping("/analyze")
-	public at.fhv.weather.models.WeatherResult analyze(@org.springframework.web.bind.annotation.RequestParam("text") String text, @org.springframework.web.bind.annotation.RequestParam("token") String token) throws Exception {
+	@org.springframework.web.bind.annotation.PostMapping("/getWeather")
+	public at.fhv.weather.models.WeatherResult getWeather(@org.springframework.web.bind.annotation.RequestParam("text") String text, @org.springframework.web.bind.annotation.RequestParam("token") String token) throws Exception {
 		// Start of user code analyze
-		return null;
+		return at.fhv.weather.handlers.AnalysisHandler.getInstance().getWeather(text, token);
 		// End of user code
 	}
 	
