@@ -12,10 +12,11 @@ jobs:
         token: $SONAR_TOKEN
     script:
     - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+
   - stage: deploy to heroku
-      deploy:
-        provider: heroku
-        api_key: $HEROKU_API_KEY
-        app: fhvweatherapp
-        on:
-          repo: jstfhv/CI-WeatherApp
+    deploy:
+      provider: heroku
+      api_key: $HEROKU_API_KEY
+      app: fhvweatherapp
+      on:
+        repo: jstfhv/CI-WeatherApp
