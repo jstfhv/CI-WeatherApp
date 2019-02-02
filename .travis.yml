@@ -21,7 +21,7 @@ jobs:
     - cd docs/generated
     - git add --all
     - git commit -am "update documentation"
-  - git push "https://${TRAVIS_GITHUB_TOKEN}@github.com/jstfhv/CI_Docs.git" master
+    - git push "https://${TRAVIS_GITHUB_TOKEN}@github.com/jstfhv/CI_Docs.git" master
   - stage: deploy to heroku
     deploy:
       provider: heroku
