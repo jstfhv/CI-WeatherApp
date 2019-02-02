@@ -1,6 +1,5 @@
 $(document).ready(function () {
     var token = read('token');
-    console.log(token);
     if (!token){
         window.location.replace("index.html");
     }
@@ -12,8 +11,6 @@ $(document).ready(function () {
         type: "GET",
         success: function (response) {
             response.items.forEach(function (data) {
-
-
                 $('#historyTable tbody').append('<tr><td>' + data.result.location + '</td><<td style="text-align: center;">' + data.result.weather + '</td><td>' + FormatDate(EpochToDate(data.requested)) + '</td></tr>');
             });
         },
