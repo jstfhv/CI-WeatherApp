@@ -7,5 +7,5 @@ script:
 
 addons:
   sonarcloud:
-  - organization: CI-WeatherApp
-  - token: $SONAR_TOKEN
+    organization: CI-WeatherApp
+    token: $SONAR_TOKEN
