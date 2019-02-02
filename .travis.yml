@@ -11,6 +11,7 @@ jobs:
     addons:
       sonarcloud:
         organization: "jstfhv-github"
-        token: $SONAR_TOKEN
+        token:
+          secure: $SONAR_TOKEN
     script:
       - ./mvnw org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
