@@ -10,7 +10,11 @@ jobs:
       sonarcloud:
         organization: jstfhv-github
         token: $SONAR_TOKEN
-        
     script:
     - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+
+  - stage: deploy to heroku
+    provider: heroku
+      app: fhvweatherapp
+      api_key: $HEROKU_TOKEN
 
