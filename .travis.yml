@@ -15,9 +15,9 @@ jobs:
     - cd ..
     - "git clone https://github.com/jstfhv/CI_Docs.git"
     - rm -rf CI_Docs/generated/jacoco-ut CI_Docs/generated/jacoco-it CI_Docs/generated/apidocs
-    - ls CI-WeatherApp
     - ls CI-WeatherApp/target
-    - ls CI-WeatherApp/target/site
+    - ls CI-WeatherApp/target/generated-test-sources
+    - ls CI-WeatherApp/target/generated-sources
     - cp -r CI-WeatherApp/target/site/jacoco-ut CI_Docs/generated/
     - cp -r CI-WeatherApp/target/site/jacoco-it CI_Docs/generated/
     - cp -r CI-WeatherApp/target/site/apidocs CI_Docs/generated/
