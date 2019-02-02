@@ -9,9 +9,8 @@ jobs:
     addons:
       sonarcloud:
         organization: jstfhv-github
-        token:
-          secure: enyOCh3SLkUUxMKLJGP7eVWoPF68bJe8eyp9GH1Av0OIkQJW7sOUr+gL6qCo1exQOsozuqyF8ZQH/JyGaC6NpKNONDFmhuZIQ+FsF+vRKFI4GdiTIVDANoF/UiBBA//6vony6WOPn2dp/uDdBDIkB5S3TmwPeXvyXsYQtA6uLBye+C5NXxYu173Z2VX7w38+Yi4LFhSTix+e2qVochRVc8nF+uU/Z/MiYya6IbeTMjizVxswHAMIAMa8HyqeAxcd0gT8GWT4uOTyiW6tva95wtnwEYagYTLE2zHIBxwE4Z17IoGVep/xPMsB7SlxTJq75OIOEk4R8X5p9qsO4E0hj1AGjypwVyCJgA8Uop9nJ099JKx0+FmxfpEZiqCELrnco1ZDqPbJ5gc1uHpYcaGOYVZvdmn6k6GSVYMwwz3xf6kEa3lTetIDWMg/9YVZAOFNad1AfAOp2IplT0gx7MIL9eUJ+D/Jttv5DmDd/TbxxLikjcD7u9F5wrGIsfaSBsVQ057elktPK2bO6N3Fs9p7wQlwbOWzM4pPXCDltAzN6a4NWqu4aYqjE1JOe8RI8xv0Kat0yd72/yinQ/mm68JMmr+MjkvL3LXXQ7/at+hhB4oC6P+ZHml9ZtXR3KaDH37/TYrP/l3M09p6oi2OrOYc42buWi7rk2LeXmW9wtdYNTI=
-
+        token: $SONAR_TOKEN
+        
     script:
     - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
 
