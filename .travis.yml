@@ -14,11 +14,11 @@ jobs:
     - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
     - cd ..
     - "git clone https://github.com/jstfhv/CI_Docs.git"
-    - rm -rf docs/generated/jacoco-ut docs/generated/jacoco-it docs/generated/apidocs
-    - cp -r application/target/site/jacoco-ut docs/generated/
-    - cp -r application/target/site/jacoco-it docs/generated/
-    - cp -r application/target/site/apidocs docs/generated/
-    - cd docs/generated
+    - rm -rf CI_Docs/generated/jacoco-ut docs/generated/jacoco-it docs/generated/apidocs
+    - cp -r CI-WeatherApp/target/site/jacoco-ut docs/generated/
+    - cp -r CI-WeatherApp/target/site/jacoco-it docs/generated/
+    - cp -r CI-WeatherApp/target/site/apidocs docs/generated/
+    - cd CI_Docs/generated
     - git add --all
     - git commit -am "update documentation"
     - git push "https://${TRAVIS_GITHUB_TOKEN}@github.com/jstfhv/CI_Docs.git" master
