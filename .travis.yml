@@ -2,10 +2,14 @@ language: java
 jdk: oraclejdk8
 
 
-script:
-- "./mvnw clean install -B"
 
 addons:
   sonarcloud:
     organization: CI-WeatherApp
     token: $SONAR_TOKEN
+
+
+
+script:
+- "./mvnw clean install -B"
+- "./mvnq clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar"
