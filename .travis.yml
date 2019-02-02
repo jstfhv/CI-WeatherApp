@@ -18,7 +18,6 @@ jobs:
     - ls CI-WeatherApp/target
     - ls CI-WeatherApp/target/site
     - cp -r CI-WeatherApp/target/site/jacoco-ut CI_Docs/generated/
-    - cp -r CI-WeatherApp/target/site/jacoco-it CI_Docs/generated/
     - cp -r CI-WeatherApp/target/site/apidocs CI_Docs/generated/
     - cd CI_Docs/generated
     - git add --all
