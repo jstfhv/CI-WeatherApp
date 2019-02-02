@@ -5,7 +5,7 @@ jobs:
   include:
   - stage: build
     -script:
-      - mvn clean isntall -B
+      - mvn clean install -B
 
   - stage: static code analysis
     addons:
