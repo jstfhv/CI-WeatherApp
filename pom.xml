@@ -9,7 +9,7 @@
 		<version>2.1.1.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>at.fhv.cicd</groupId>
+	<groupId>at.fhv.weather</groupId>
 	<artifactId>application</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>application</name>
