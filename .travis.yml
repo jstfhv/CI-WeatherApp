@@ -10,7 +10,7 @@ jobs:
   - stage: static code analysis
     addons:
       sonarcloud:
-        organization: CI-WeatherApp
+        organization: jstfhv-github
         token: $SONAR_TOKEN
     script:
       - mvn org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
