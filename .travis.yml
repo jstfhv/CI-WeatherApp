@@ -5,7 +5,7 @@ jobs:
   include:
   - stage: build
     -script:
-      - mvn clean install -B
+      - mvn deploy
 
   - stage: static code analysis
     addons:
@@ -13,4 +13,4 @@ jobs:
         organization: CI-WeatherApp
         token: $SONAR_TOKEN
     script:
-      - mvn org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+      - mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify sonar:sonar
