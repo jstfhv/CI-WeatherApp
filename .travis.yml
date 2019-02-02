@@ -15,6 +15,6 @@ jobs:
   - stage: deploy to heroku
       deploy:
         provider: heroku
-          app: fhvweatherapp
-          api_key: $HEROKU_TOKEN
-  
+        app: fhvweatherapp
+        api_key: $HEROKU_TOKEN
+
