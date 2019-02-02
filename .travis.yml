@@ -5,12 +5,12 @@ jobs:
   include:
   - stage: build
     -script:
-      - mvn deploy
+      - ./mvnw clean install -B
 
   - stage: static code analysis
     addons:
       sonarcloud:
-        organization: jstfhv-github
+        organization: "jstfhv-github"
         token: $SONAR_TOKEN
     script:
-      - mvn org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+      - ./mvnw org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
