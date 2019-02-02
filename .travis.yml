@@ -4,7 +4,7 @@ jobs:
   include:
   - stage: build
     script:
-    - mvn deploy
+    - mvn clean install -B
   - stage: static code analysis
     addons:
       sonarcloud:
