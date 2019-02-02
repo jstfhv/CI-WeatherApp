@@ -29,5 +29,3 @@ jobs:
       app: fhvweatherapp
       on:
         repo: jstfhv/CI-WeatherApp
-
-"https://${TRAVIS_GITHUB_TOKEN}@github.com/fhv-continuous-delivery/docs.git" master
