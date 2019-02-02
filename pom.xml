@@ -19,7 +19,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-	<distributionManagement>
+	<!--distributionManagement>
 		<repository>
 			<id>packagecloud-fhv-msi</id>
 			<url>packagecloud+https://packagecloud.io/fhv-msi/continuous-delivery</url>
@@ -28,7 +28,7 @@
 			<id>packagecloud-fhv-msi</id>
 			<url>packagecloud+https://packagecloud.io/fhv-msi/continuous-delivery</url>
 		</snapshotRepository>
-	</distributionManagement>
+	</distributionManagement-->
 
 	<dependencies>
 		<dependency>
