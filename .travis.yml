@@ -12,7 +12,16 @@ jobs:
         token: $SONAR_TOKEN
     script:
     - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
-
+    - cd ..
+    - "git clone https://github.com/jstfhv/CI_Docs.git"
+    - rm -rf docs/generated/jacoco-ut docs/generated/jacoco-it docs/generated/apidocs
+    - cp -r application/target/site/jacoco-ut docs/generated/
+    - cp -r application/target/site/jacoco-it docs/generated/
+    - cp -r application/target/site/apidocs docs/generated/
+    - cd docs/generated
+    - git add --all
+    - git commit -am "update documentation"
+  - git push "https://${TRAVIS_GITHUB_TOKEN}@github.com/jstfhv/CI_Docs.git" master
   - stage: deploy to heroku
     deploy:
       provider: heroku
@@ -20,3 +29,5 @@ jobs:
       app: fhvweatherapp
       on:
         repo: jstfhv/CI-WeatherApp
+
+"https://${TRAVIS_GITHUB_TOKEN}@github.com/fhv-continuous-delivery/docs.git" master

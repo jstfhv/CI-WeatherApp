@@ -18,7 +18,7 @@ $(function() {
             url: "/getWeather",
             type: "POST",
             data: {
-                text: $('#analyzeText').val(),
+                text: $('#locationSearch').val(),
                 token: read('token')
             },
 

@@ -6,7 +6,7 @@ $(function() {
             url: "/login",
             type: "POST",
             data: {
-                email: $('#email').val()
+                email: $('#name').val()
             },
             success: function (response) {
                 write('token', response);
