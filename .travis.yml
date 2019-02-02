@@ -1,15 +1,16 @@
 language: java
 jdk: oraclejdk8
 
+jobs:
+  include:
+  - stage: build
+    -script:
+      - mvn clean isntall -B
 
-
-addons:
-  sonarcloud:
-    organization: CI-WeatherApp
-    token: $SONAR_TOKEN
-
-
-
-script:
-- "./mvnw clean install -B"
-- "./mvnq clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar"
+  - stage: static code analysis
+    addons:
+      sonarcloud:
+        organization: CI-WeatherApp
+        token: $SONAR_TOKEN
+    script:
+      - mvn org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
