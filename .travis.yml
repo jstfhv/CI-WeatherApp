@@ -34,16 +34,16 @@ jobs:
     script:
     - cd ..
     - "git clone https://github.com/jstfhv/CI_Test_Weatherapp.git"
-    - cd test_WeatherAPP
+    - cd CI_Test_Weatherapp
     - mvn verify
     - cd ..
     - "git clone https://github.com/jstfhv/CI_Docs.git"
     - rm -rf CI_Docs/generated/cukedoctor CI_Docs/generated/walk_through.mp4
-    - cp -r test_WeatherAPP/target/cukedoctor CI_Docs/generated/
+    - cp -r CI_Test_Weatherapp/target/cukedoctor CI_Docs/generated/
     - rm -rf CI_Docs/generated/jmeter
-    - cp -r test_WeatherAPP/target/jmeter/reports/performance* CI_Docs/generated/jmeter
+    - cp -r CI_Test_Weatherapp/target/jmeter/reports/performance* CI_Docs/generated/jmeter
     - cd CI_Docs/generated
-    - ../../test_WeatherAPP/scripts/get_testingbot_video.py
+    - ../../CI_Test_Weatherapp/scripts/get_testingbot_video.py
     - git add --all
     - git commit -am "update tests"
     - git push "https://${TRAVIS_GITHUB_TOKEN}@github.com/jstfhv/CI_Docs.git" master
