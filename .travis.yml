@@ -34,7 +34,7 @@ jobs:
     script:
     - cd ..
     - "git clone https://github.com/jstfhv/CI_Test_Weatherapp.git"
-    - cd tests
+    - cd test_WeatherAPP
     - mvn verify
     - cd ..
     - "git clone https://github.com/jstfhv/CI_Docs.git"
