@@ -30,3 +30,20 @@ jobs:
       app: fhvweatherapp
       on:
         repo: jstfhv/CI-WeatherApp
+  - stage: automatic user acceptance and performance tests on staging
+    script:
+    - cd ..
+    - "git clone https://github.com/jstfhv/CI_Test_Weatherapp.git"
+    - cd tests
+    - mvn verify
+    - cd ..
+    - "git clone https://github.com/jstfhv/CI_Docs.git"
+    - rm -rf CI_Docs/generated/cukedoctor CI_Docs/generated/walk_through.mp4
+    - cp -r test_WeatherAPP/target/cukedoctor CI_Docs/generated/
+    - rm -rf CI_Docs/generated/jmeter
+    - cp -r test_WeatherAPP/target/jmeter/reports/performance* CI_Docs/generated/jmeter
+    - cd CI_Docs/generated
+    - ../../test_WeatherAPP/scripts/get_testingbot_video.py
+    - git add --all
+    - git commit -am "update tests"
+    - git push "https://${TRAVIS_GITHUB_TOKEN}@github.com/jstfhv/CI_Docs.git" master
